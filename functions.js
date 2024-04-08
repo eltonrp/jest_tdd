@@ -18,4 +18,14 @@ const remAndUpper = (string) => {
   return removeSpacing(string).toUpperCase()
 }
 
-module.exports = { sayHello, olaMundo, removeSpacing, countingStrings, remAndUpper }
+const consultApi = async(url) => {
+  try {
+    const response = await fetch(url)
+    const json  = await response.json()
+    return json
+  } catch(error) {
+    return error
+  }
+}
+
+module.exports = { sayHello, olaMundo, removeSpacing, countingStrings, remAndUpper, consultApi }
